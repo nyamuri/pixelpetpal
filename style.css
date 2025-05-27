@@ -28,3 +28,34 @@ body{
 background-color: rgb(218, 235, 218);
 }
 
+.pet-choice {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 20px 0;
+}
+
+.pet-choice label {
+  cursor: pointer;
+  transition: transform 0.2s ease, border 0.2s ease;
+  border: 3px solid transparent;
+  border-radius: 12px;
+  padding: 5px;
+}
+
+.pet-option {
+  width: 120px;
+  height: auto;
+  transition: transform 0.2s ease;
+}
+
+.pet-choice label:hover {
+  transform: scale(1.05);
+  border-color: #ff006a;
+}
+
+.pet-choice input:checked + img {
+  border: 3px solid #66cdaa;
+  border-radius: 12px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.445);
+}
