@@ -1,9 +1,9 @@
-.loader-container {
+.spinner-container {
   text-align: center;
   margin-top: 100px;
 }
 
-.loader {
+.spinner {
   width: 48px;
   height: 48px;
   border: 5px solid #000000;
@@ -24,4 +24,7 @@
   }
 }
 
-/loader CSS from https://cssloaders.github.io/
+body{
+background-color: rgb(218, 235, 218);
+}
+

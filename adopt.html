@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Adopt Your PixelPal</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="adopt.js"></script>
+</head>
+<body>
+  <div class="adopt-container">
+    <h1>🐾 Adopt Your Pixel Pal 🐾</h1>
+    <form id="adopt-form">
+      <label for="pet-name">Pet Name:</label>
+      <input type="text" id="pet-name" required />
+
+      <label for="pet-type">Choose a Pet:</label>
+      <select id="pet-type" required>
+        <option value="">--Select--</option>
+        <option value="cat">🐱 Cat</option>
+        <option value="dog">🐶 Dog</option>
+      </select>
+
+      <button type="submit">Adopt!</button>
+    </form>
+  </div>
+</body>
+</html>
