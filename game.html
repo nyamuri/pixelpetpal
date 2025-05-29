@@ -1,28 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your Pixel Pal</title>
-  <link rel="stylesheet" href="game.css" />
+  <link rel="stylesheet" href="game.css">
   <script defer src="game.js"></script>
 </head>
 <body>
   <div class="container">
     <h1>🐾 Your Pixel Pal 🐾</h1>
-    <h2 id="pet-name-display"></h2>
+    <h2 id="pet-name-display">Loading pet name...</h2>
+    
     <div id="status-bars">
-      <div class="bar"><label>Hunger:</label> <progress id="hunger" max="100" value="50"></progress></div>
-      <div class="bar"><label>Happiness:</label> <progress id="happiness" max="100" value="70"></progress></div>
-      <div class="bar"><label>Energy:</label> <progress id="energy" max="100" value="80"></progress></div>
+      <div class="bar">
+        <label for="hunger">Hunger:</label> 
+        <progress id="hunger" max="100" value="50"></progress>
+      </div>
+      <div class="bar">
+        <label for="happiness">Happiness:</label> 
+        <progress id="happiness" max="100" value="70"></progress>
+      </div>
+      <div class="bar">
+        <label for="energy">Energy:</label> 
+        <progress id="energy" max="100" value="80"></progress>
+      </div>
     </div>
-
-    <img id="pet-image" src="" alt="Your Pet" class="pet" />
-
+    <img id="pet-image" src="assets/cat.png" alt="Image of your Pixel Pal" class="pet">
     <div class="actions">
-      <button onclick="feed()">🍖 Feed</button>
-      <button onclick="play()">🎾 Play</button>
-      <button onclick="sleep()">💤 Sleep</button>
+      <button onclick="feed()">Feed</button>
+      <button onclick="play()">Play</button>
+      <button onclick="sleep()">Sleep</button>
+      <button onclick="walk()">Walk</button>
     </div>
   </div>
 </body>

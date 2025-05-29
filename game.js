@@ -6,17 +6,16 @@ let pet = JSON.parse(localStorage.getItem('pixelPal')) || {
   energy: 80
 };
 
+const petImage = document.getElementById("pet-image");
 const hungerBar = document.getElementById("hunger");
 const happinessBar = document.getElementById("happiness");
 const energyBar = document.getElementById("energy");
-const petImage = document.getElementById("pet-image");
 
 function updateUI() {
   hungerBar.value = pet.hunger;
   happinessBar.value = pet.happiness;
   energyBar.value = pet.energy;
-
-  document.getElementById('pet-name-display').textContent = pet.name;
+  document.getElementById('pet-name-display').textContent = pet.name || "Your Pet";
   petImage.src = pet.type === "cat" ? "assets/cat.png" : "assets/dog.png";
 }
 
@@ -41,6 +40,10 @@ function sleep() {
   pet.energy = clamp(pet.energy + 20);
   savePet();
   updateUI();
+}
+
+function walk() {
+  window.location.href = 'walk.html';
 }
 
 function decayStats() {

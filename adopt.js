@@ -15,7 +15,7 @@ document.getElementById('adopt-form').addEventListener('submit', function (e) {
     hunger: 70,
     happiness: 70,
     energy: 70,
-    adoptedAt: Date.now()
+    xp: 0
   };
 
   localStorage.setItem('pixelPal', JSON.stringify(pet));
