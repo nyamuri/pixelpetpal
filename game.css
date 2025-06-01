@@ -59,12 +59,6 @@ h1 {
   border-radius: 10px 0 0 10px;
 }
 
-/* Pet image */
-.pet {
-  width: 150px;
-  margin-bottom: 20px;
-}
-
 /* Status bars container with flex row */
 #status-bars {
   display: flex;
@@ -113,9 +107,18 @@ h1 {
   height: 200px;
   background-size: cover;
   background-position: center;
-  margin: 0 auto;
+  margin: 0 auto 20px auto;
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;  /* important for layering */
+  overflow: hidden;
+  border: 2px solid #333; /* optional, to see boundaries */
+}
+
+.pet {
+  width: 150px;
+  position: relative; /* keep on top */
+  z-index: 1;
 }

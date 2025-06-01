@@ -7,7 +7,7 @@ let pet = JSON.parse(localStorage.getItem('pixelPal')) || {
   xp: 0,
   level: 1,
   coins: 0,
-  background: "defaultbg.png" // add this line for default background
+  background: "defaultbg.png"
 };
 
 const petImage = document.getElementById("pet-image");
@@ -32,7 +32,7 @@ function updateUI() {
 
   // Set the background image
   const petBg = document.getElementById("pet-background");
-  petBg.style.backgroundImage = `url('assets/backgrounds/${pet.background || "bg-default.jpg"}')`;
+  petBg.style.backgroundImage = `url('assets/${pet.background || "defaultbg.png"}')`;
 
   // Update bar colors
   updateBarColor(hungerBar, pet.hunger);
