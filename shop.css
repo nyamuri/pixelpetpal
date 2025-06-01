@@ -1,0 +1,82 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f3f8f4;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.shop-container {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#shop-pet {
+  width: 120px;
+  margin: 10px 0;
+}
+
+#coin-count {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tab {
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #ddd;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.tab.active {
+  background-color: #4caf50;
+  color: white;
+}
+
+.shop-section {
+  display: none;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  width: 100%;
+}
+
+.shop-section.active {
+  display: grid;
+}
+
+.item {
+  background: #f0f0f0;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.item img {
+  width: 100%;
+  max-width: 100px;
+  margin-bottom: 10px;
+}
