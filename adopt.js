@@ -12,9 +12,9 @@ document.getElementById('adopt-form').addEventListener('submit', function (event
   const pet = {
     name,
     type,
-    hunger: 70,
+    hunger: 50,
     happiness: 70,
-    energy: 70,
+    energy: 80,
     xp: 0
   };
 

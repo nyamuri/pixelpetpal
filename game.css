@@ -18,43 +18,50 @@ body {
   align-items: center;
 }
 
-/* XP bar container */
-#xp-container {
-  width: 100%;
-  margin-bottom: 20px;
+h1 {
+  margin-bottom: 10px;
 }
 
-#xp-container label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-  text-align: left;
-}
-
-#xp {
-  width: 100%;
-  height: 20px;
-  appearance: none;
-  -webkit-appearance: none;
-  border-radius: 10px;
-  overflow: hidden;
-  background: #ccc;
-}
-
-#xp::-webkit-progress-value {
-  background-color: gold;
-  border-radius: 10px;
-}
-
-#xp::-moz-progress-bar {
-  background-color: gold;
-  border-radius: 10px;
-}
-
-/* Pet name styling */
 #pet-name-display {
   font-size: 24px;
   font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* XP Container */
+#xp-container {
+  width: 100%;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+#xp-container label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+/* Progress bar container */
+.progress-container {
+  width: 100%;
+  height: 20px;
+  background-color: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Progress bar fill */
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background-color: pink; /* default color */
+  transition: width 0.3s ease-in-out;
+  border-radius: 10px 0 0 10px;
+}
+
+/* Pet image */
+.pet {
+  width: 150px;
   margin-bottom: 20px;
 }
 
@@ -69,17 +76,13 @@ body {
 .bar {
   flex: 1;
   margin: 0 5px;
+  text-align: left;
 }
 
-progress {
-  width: 100%;
-  height: 20px;
-}
-
-/* Pet image */
-.pet {
-  width: 150px;
-  margin-bottom: 20px;
+.bar label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
 }
 
 /* Buttons container */
