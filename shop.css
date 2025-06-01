@@ -1,82 +1,101 @@
+/* Base styles */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #f3f8f4;
+  background-color: #f0fff5;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  min-height: 100vh;
   padding: 20px;
 }
 
 .shop-container {
   background: white;
-  border-radius: 12px;
   padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 420px;
   width: 100%;
-  max-width: 600px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  text-align: center;
 }
 
+/* Header */
 h1 {
-  text-align: center;
   margin-bottom: 10px;
 }
 
-#shop-pet {
-  width: 120px;
-  margin: 10px 0;
-}
-
+/* Coin count */
 #coin-count {
   font-weight: bold;
   margin-bottom: 20px;
 }
 
-.tabs {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
+/* Pet image preview */
+.pet-preview {
+  width: 120px;
+  height: auto;
+  margin-bottom: 15px;
+  border-radius: 8px;
 }
 
-.tab {
-  padding: 10px 20px;
-  cursor: pointer;
-  background-color: #ddd;
-  border: none;
-  border-radius: 6px;
-  font-weight: bold;
-}
-
-.tab.active {
-  background-color: #4caf50;
-  color: white;
-}
-
+/* Item grid */
 .shop-section {
-  display: none;
+  display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 15px;
-  width: 100%;
 }
 
-.shop-section.active {
-  display: grid;
-}
-
+/* Each item */
 .item {
-  background: #f0f0f0;
-  border-radius: 8px;
+  background: #f9f9f9;
   padding: 10px;
-  text-align: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  border: 1px solid #ccc;
 }
 
 .item img {
   width: 100%;
-  max-width: 100px;
-  margin-bottom: 10px;
+  height: auto;
+  border-radius: 4px;
+}
+
+.item p {
+  margin: 8px 0 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* Buy Button Styling */
+button.buy-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 8px;
+}
+
+button.buy-button:hover {
+  background-color: #45a049;
+}
+
+#back-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.2s ease;
+  display: block;
+  width: 100%;
+}
+
+#back-button:hover {
+  background-color: #45a049;
 }

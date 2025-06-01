@@ -6,7 +6,8 @@ let pet = JSON.parse(localStorage.getItem('pixelPal')) || {
   energy: 80,
   xp: 0,
   level: 1,
-  coins: 0
+  coins: 0,
+  background: "defaultbg.png" // add this line for default background
 };
 
 const petImage = document.getElementById("pet-image");
@@ -27,8 +28,13 @@ function updateUI() {
   petImage.src = pet.type === "cat" ? "assets/cat.png" : "assets/dog.png";
 
   levelDisplay.textContent = `Level ${pet.level || 1}`;
-  coinDisplay.textContent = `Coins: ${pet.coins || 0}`;
+  document.getElementById('coin-count').textContent = `Coins: ${pet.coins || 0}`;
 
+  // Set the background image
+  const petBg = document.getElementById("pet-background");
+  petBg.style.backgroundImage = `url('assets/backgrounds/${pet.background || "bg-default.jpg"}')`;
+
+  // Update bar colors
   updateBarColor(hungerBar, pet.hunger);
   updateBarColor(happinessBar, pet.happiness);
   updateBarColor(energyBar, pet.energy);

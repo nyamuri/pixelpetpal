@@ -107,3 +107,15 @@ h1 {
 .actions button:hover {
   background-color: #55b399; /* darker green on hover */
 }
+
+#pet-background {
+  width: 200px;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  margin: 0 auto;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
