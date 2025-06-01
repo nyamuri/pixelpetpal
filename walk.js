@@ -1,10 +1,10 @@
 let pet, player, goal, playerImg;
 let catImg, dogImg, houseImg;
 let mazeGrid = [];
-const cellSize = 40;
 const rows = 15;
 const cols = 15;
 
+let cellSize;
 let coinPositions = [];
 let coinCount = 0;
 
@@ -15,8 +15,17 @@ function preload() {
 }
 
 function setup() {
-  let canvas = createCanvas(cols * cellSize, rows * cellSize);
-  canvas.parent('canvas-container'); // <== Attach canvas to the div for centering
+  // Calculate cellSize dynamically based on container width
+  const containerWidth = document.querySelector('.container').clientWidth;
+  cellSize = Math.floor(containerWidth / cols);
+
+  // Create canvas with responsive width and height
+  let canvas = createCanvas(cellSize * cols, cellSize * rows);
+
+  // Append canvas inside container, after the h1
+  canvas.parent(document.querySelector('.container'));
+  canvas.style('display', 'block');
+  canvas.style('margin', '0 auto');
 
   pet = JSON.parse(localStorage.getItem("pixelPal")) || { type: "dog", xp: 0 };
   playerImg = pet.type === "cat" ? catImg : dogImg;
