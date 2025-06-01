@@ -1,5 +1,5 @@
-document.getElementById('adopt-form').addEventListener('submit', function (e) {
-  e.preventDefault();
+document.getElementById('adopt-form').addEventListener('submit', function (event) {
+  event.preventDefault();
 
   const name = document.getElementById('pet-name').value.trim();
   const type = document.querySelector('input[name="pet"]:checked')?.value;

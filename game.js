@@ -3,18 +3,25 @@ let pet = JSON.parse(localStorage.getItem('pixelPal')) || {
   type: "dog",
   hunger: 50,
   happiness: 70,
-  energy: 80
+  energy: 80,
+  xp: 0 // 👈 Add XP field
 };
+
 
 const petImage = document.getElementById("pet-image");
 const hungerBar = document.getElementById("hunger");
 const happinessBar = document.getElementById("happiness");
 const energyBar = document.getElementById("energy");
+const xpBar = document.getElementById("xp");
+
 
 function updateUI() {
   hungerBar.value = pet.hunger;
   happinessBar.value = pet.happiness;
   energyBar.value = pet.energy;
+  xpBar.value = pet.xp || 0;
+  
+
   document.getElementById('pet-name-display').textContent = pet.name || "Your Pet";
   petImage.src = pet.type === "cat" ? "assets/cat.png" : "assets/dog.png";
 }
@@ -26,21 +33,25 @@ function clamp(value) {
 
 function feed() {
   pet.hunger = clamp(pet.hunger + 20);
+  pet.xp = clamp((pet.xp || 0) + 5); // 🎉 XP gain
   savePet();
   updateUI();
 }
 
 function play() {
   pet.happiness = clamp(pet.happiness + 20);
+  pet.xp = clamp((pet.xp || 0) + 5);
   savePet();
   updateUI();
 }
 
 function sleep() {
   pet.energy = clamp(pet.energy + 20);
+  pet.xp = clamp((pet.xp || 0) + 5);
   savePet();
   updateUI();
 }
+
 
 function walk() {
   window.location.href = 'walk.html';

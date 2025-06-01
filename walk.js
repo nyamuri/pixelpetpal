@@ -1,8 +1,10 @@
 let pet, player, goal, playerImg;
 let catImg, dogImg, houseImg;
 let mazeGrid = [];
-let cellSize = 40;
-let rows, cols;
+const cellSize = 40;
+const rows = 15;
+const cols = 15;
+
 
 let coinPositions = [];
 let coinCount = 0;
@@ -14,12 +16,11 @@ function preload() {
   // Removed coinImg since we no longer use an image for coins
 }
 
-function setup() {
-  cellSize = 40;
-  cols = floor(windowWidth / cellSize);
-  rows = floor(windowHeight / cellSize);
 
-  createCanvas(cols * cellSize, rows * cellSize);
+function setup() {
+  let canvas = createCanvas(cols * cellSize, rows * cellSize);
+  canvas.position((windowWidth - width) / 2, (windowHeight - height) / 2);
+
   pet = JSON.parse(localStorage.getItem("pixelPal")) || { type: "dog", xp: 0 };
   playerImg = pet.type === "cat" ? catImg : dogImg;
 
@@ -27,9 +28,10 @@ function setup() {
   player = createVector(1, 1);
   goal = createVector(cols - 2, rows - 2);
 
-  coinCount = floor(random(1, 6)); // 1 to 5 coins
+  coinCount = floor(random(1, 6)); // 1–5 coins
   spawnCoins(coinCount);
 }
+
 
 
 function draw() {
@@ -57,6 +59,8 @@ function draw() {
   // Check goal reached
   if (player.x === goal.x && player.y === goal.y) {
     pet.xp = (pet.xp || 0) + 10;
+    pet.happiness = (pet.happiness || 0) + 10;
+    pet.energy = (pet.energy || 0) - 10;
     localStorage.setItem("pixelPal", JSON.stringify(pet));
     window.location.href = "game.html";
   }
