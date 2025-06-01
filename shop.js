@@ -6,8 +6,8 @@ let pet = JSON.parse(localStorage.getItem('pixelPal')) || {
   energy: 80,
   xp: 0,
   level: 1,
-  coins: 100, // default if missing
-  background: "bg1.png" // default background
+  coins: 0, // default if missing
+  background: "defaultbg.png" // default background
 };
 
 const coinCount = document.getElementById("coin-count");
