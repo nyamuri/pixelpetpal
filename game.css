@@ -97,4 +97,13 @@ h1 {
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
+  background-color: #66cdaa; /* green */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.actions button:hover {
+  background-color: #55b399; /* darker green on hover */
 }

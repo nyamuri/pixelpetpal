@@ -5,7 +5,6 @@ const cellSize = 40;
 const rows = 15;
 const cols = 15;
 
-
 let coinPositions = [];
 let coinCount = 0;
 
@@ -13,13 +12,11 @@ function preload() {
   catImg = loadImage("assets/cat.png");
   dogImg = loadImage("assets/dog.png");
   houseImg = loadImage("assets/house.png");
-  // Removed coinImg since we no longer use an image for coins
 }
-
 
 function setup() {
   let canvas = createCanvas(cols * cellSize, rows * cellSize);
-  canvas.position((windowWidth - width) / 2, (windowHeight - height) / 2);
+  canvas.parent('canvas-container'); // <== Attach canvas to the div for centering
 
   pet = JSON.parse(localStorage.getItem("pixelPal")) || { type: "dog", xp: 0 };
   playerImg = pet.type === "cat" ? catImg : dogImg;
@@ -32,10 +29,8 @@ function setup() {
   spawnCoins(coinCount);
 }
 
-
-
 function draw() {
-  background(240);
+  background(102, 205, 170);
   drawMaze();
 
   // Draw coins as small yellow circles
