@@ -27,26 +27,25 @@ function updateUI() {
   document.getElementById('pet-name-display').textContent = pet.name || "Your Pet";
   petImage.src = pet.type === "cat" ? "assets/cat.png" : "assets/dog.png";
 
+  //code not supplied but change suggested by copilot to reduce repetition of getElementByID
   levelDisplay.textContent = `Level ${pet.level || 1}`;
   coinDisplay.textContent = `Coins: ${pet.coins || 0}`;
 
-  // Set the background image
   const petBg = document.getElementById("pet-background");
   petBg.style.backgroundImage = `url('assets/${pet.background || "defaultbg.png"}')`;
 
-  // Update bar colors
-  updateBarColor(hungerBar, pet.hunger);
-  updateBarColor(happinessBar, pet.happiness);
-  updateBarColor(energyBar, pet.energy);
+  updateBarColour(hungerBar, pet.hunger);
+  updateBarColour(happinessBar, pet.happiness);
+  updateBarColour(energyBar, pet.energy);
 }
 
-function updateBarColor(bar, value) {
+function updateBarColour(bar, value) {
   if (value >= 50) {
-    bar.style.backgroundColor = "#4caf50"; // green
+    bar.style.backgroundColor = "green";
   } else if (value >= 20) {
-    bar.style.backgroundColor = "#ff9800"; // orange
+    bar.style.backgroundColor = "orange";
   } else {
-    bar.style.backgroundColor = "#f44336"; // red
+    bar.style.backgroundColor = "red";
   }
 }
 
@@ -59,7 +58,7 @@ function gainXP(amount) {
   if (pet.xp >= 100) {
     pet.level = (pet.level || 1) + 1;
     pet.xp = pet.xp - 100;
-    alert(`Congrats! Your pet leveled up to level ${pet.level}!`);
+    alert(`Yippee! Your pet leveled up to level ${pet.level}!`);
   }
   pet.xp = boundary(pet.xp);
 }
@@ -107,6 +106,5 @@ function savePet() {
   localStorage.setItem("pixelPal", JSON.stringify(pet));
 }
 
-// Start
 updateUI();
 setInterval(decayStats, 5000);
