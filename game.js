@@ -28,7 +28,7 @@ function updateUI() {
   petImage.src = pet.type === "cat" ? "assets/cat.png" : "assets/dog.png";
 
   levelDisplay.textContent = `Level ${pet.level || 1}`;
-  document.getElementById('coin-count').textContent = `Coins: ${pet.coins || 0}`;
+  coinDisplay.textContent = `Coins: ${pet.coins || 0}`;
 
   // Set the background image
   const petBg = document.getElementById("pet-background");
@@ -50,7 +50,7 @@ function updateBarColor(bar, value) {
   }
 }
 
-function clamp(value) {
+function boundary(value) {
   return Math.max(0, Math.min(100, value));
 }
 
@@ -61,29 +61,31 @@ function gainXP(amount) {
     pet.xp = pet.xp - 100;
     alert(`Congrats! Your pet leveled up to level ${pet.level}!`);
   }
-  pet.xp = clamp(pet.xp);
+  pet.xp = boundary(pet.xp);
+}
+
+//copilot cleaned up code below
+
+function performAction(stat, amount, xpAmount = 5) {
+  pet[stat] = boundary(pet[stat] + amount);
+  gainXP(xpAmount);
+  savePet();
+  updateUI();
 }
 
 function feed() {
-  pet.hunger = clamp(pet.hunger + 20);
-  gainXP(5);
-  savePet();
-  updateUI();
+  performAction('hunger', 20);
 }
 
 function play() {
-  pet.happiness = clamp(pet.happiness + 20);
-  gainXP(5);
-  savePet();
-  updateUI();
+  performAction('happiness', 20);
 }
 
 function sleep() {
-  pet.energy = clamp(pet.energy + 20);
-  gainXP(5);
-  savePet();
-  updateUI();
+  performAction('energy', 20);
 }
+
+//copilot clean up end - original code in report
 
 function walk() {
   window.location.href = 'walk.html';
@@ -94,9 +96,9 @@ function shop() {
 }
 
 function decayStats() {
-  pet.hunger = clamp(pet.hunger - 1);
-  pet.happiness = clamp(pet.happiness - 1);
-  pet.energy = clamp(pet.energy - 1);
+  pet.hunger = boundary(pet.hunger - 1);
+  pet.happiness = boundary(pet.happiness - 1);
+  pet.energy = boundary(pet.energy - 1);
   savePet();
   updateUI();
 }

@@ -15,14 +15,11 @@ function preload() {
 }
 
 function setup() {
-  // Calculate cellSize dynamically based on container width
   const containerWidth = document.querySelector('.container').clientWidth;
   cellSize = Math.floor(containerWidth / cols);
 
-  // Create canvas with responsive width and height
   let canvas = createCanvas(cellSize * cols, cellSize * rows);
 
-  // Append canvas inside container, after the h1
   canvas.parent(document.querySelector('.container'));
   canvas.style('display', 'block');
   canvas.style('margin', '0 auto');
@@ -42,25 +39,20 @@ function draw() {
   background(102, 205, 170);
   drawMaze();
 
-  // Draw coins as small yellow circles
   fill('yellow');
   noStroke();
   for (let coin of coinPositions) {
     ellipse(coin.x * cellSize + cellSize / 2, coin.y * cellSize + cellSize / 2, 15, 15);
   }
 
-  // Draw goal
   imageMode(CENTER);
   image(houseImg, goal.x * cellSize + cellSize / 2, goal.y * cellSize + cellSize / 2, 30, 30);
 
-  // Draw player
   imageMode(CORNER);
   image(playerImg, player.x * cellSize + 4, player.y * cellSize + 4, cellSize - 8, cellSize - 8);
 
-  // Check coin collection
   collectCoin();
 
-  // Check goal reached
   if (player.x === goal.x && player.y === goal.y) {
     pet.xp = (pet.xp || 0) + 10;
     pet.happiness = (pet.happiness || 0) + 10;
@@ -122,6 +114,11 @@ function generateMaze(rows, cols) {
   return maze;
 }
 
+//The maze 'carving' code above was inspired by Jamis' article on recursive backtracking
+//Author: Jamis Buck
+//Location: https://weblog.jamisbuck.org/2010/12/27/maze-generation-recursive-backtracking
+//Accessed: 01/06/2025
+
 function isCoinAtPosition(x, y) {
   for (let i = 0; i < coinPositions.length; i++) {
     if (coinPositions[i].x === x && coinPositions[i].y === y) {
@@ -154,7 +151,3 @@ function collectCoin() {
     }
   }
 }
-
-
-//maze code inspired by Jamis' article on recursive backtracking for maze generation
-//  https://weblog.jamisbuck.org/2010/12/27/maze-generation-recursive-backtracking

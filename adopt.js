@@ -2,7 +2,16 @@ document.getElementById('adopt-form').addEventListener('submit', function (event
   event.preventDefault();
 
   const name = document.getElementById('pet-name').value.trim();
-  const type = document.querySelector('input[name="pet"]:checked')?.value;
+  
+  const catRadio = document.getElementById('cat');
+  const dogRadio = document.getElementById('dog');
+
+  let type = null;
+  if (catRadio.checked) {
+    type = 'cat';
+  } else if (dogRadio.checked) {
+    type = 'dog';
+  }
 
   if (!name || !type) {
     alert("Please enter a name and choose a pet.");

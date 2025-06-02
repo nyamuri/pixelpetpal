@@ -6,14 +6,13 @@ let pet = JSON.parse(localStorage.getItem('pixelPal')) || {
   energy: 80,
   xp: 0,
   level: 1,
-  coins: 0, // default if missing
-  background: "defaultbg.png" // default background
+  coins: 0,
+  background: "defaultbg.png"
 };
 
 const coinCount = document.getElementById("coin-count");
 coinCount.textContent = `Coins: ${pet.coins || 0}`;
 
-// Buy background function
 function buyBackground(filename, cost) {
   if ((pet.coins || 0) >= cost) {
     pet.coins -= cost;

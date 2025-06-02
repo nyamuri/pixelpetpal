@@ -2,7 +2,7 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #f0fff5;
+  background-color: white;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -19,35 +19,23 @@ body {
   text-align: center;
 }
 
-/* Header */
 h1 {
   margin-bottom: 10px;
 }
 
-/* Coin count */
 #coin-count {
   font-weight: bold;
   margin-bottom: 20px;
 }
 
-/* Pet image preview */
-.pet-preview {
-  width: 120px;
-  height: auto;
-  margin-bottom: 15px;
-  border-radius: 8px;
-}
-
-/* Item grid */
 .shop-section {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 15px;
 }
 
-/* Each item */
 .item {
-  background: #f9f9f9;
+  background: white;
   padding: 10px;
   border-radius: 8px;
   border: 1px solid #ccc;
@@ -65,9 +53,8 @@ h1 {
   font-weight: 500;
 }
 
-/* Buy Button Styling */
 button.buy-button {
-  background-color: #4caf50;
+  background-color: #66cdaa;
   color: white;
   border: none;
   border-radius: 6px;
@@ -79,11 +66,11 @@ button.buy-button {
 }
 
 button.buy-button:hover {
-  background-color: #45a049;
+  background-color: #55b399;
 }
 
 #back-button {
-  background-color: #4caf50;
+  background-color: #66cdaa;
   color: white;
   border: none;
   border-radius: 6px;
@@ -97,5 +84,5 @@ button.buy-button:hover {
 }
 
 #back-button:hover {
-  background-color: #45a049;
+  background-color: #55b399;
 }
