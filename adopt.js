@@ -27,6 +27,6 @@ document.getElementById('adopt-form').addEventListener('submit', function (event
     xp: 0
   };
 
-  localStorage.setItem('pixelPal', JSON.stringify(pet));
+  localStorage.setItem('pixelPet', JSON.stringify(pet));
   window.location.href = 'game.html';
 });

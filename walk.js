@@ -25,7 +25,7 @@ function setup() {
   canvas.style('display', 'block');
   canvas.style('margin', '0 auto');
 
-  pet = JSON.parse(localStorage.getItem("pixelPal")) || { type: "dog", xp: 0 };
+  pet = JSON.parse(localStorage.getItem("pixelPet")) || { type: "dog", xp: 0 };
   playerImg = pet.type === "cat" ? catImg : dogImg;
 
   mazeGrid = generateMaze(rows, cols);
@@ -59,7 +59,7 @@ function draw() {
     pet.xp = (pet.xp || 0) + 10;
     pet.happiness = (pet.happiness || 0) + 10;
     pet.energy = (pet.energy || 0) - 10;
-    localStorage.setItem("pixelPal", JSON.stringify(pet));
+    localStorage.setItem("pixelPet", JSON.stringify(pet));
     window.location.href = "game.html";
   }
 }
@@ -148,7 +148,7 @@ function collectCoin() {
     if (coin.x === player.x && coin.y === player.y) {
       coinPositions.splice(i, 1);
       pet.coins = (pet.coins || 0) + 1;
-      localStorage.setItem("pixelPal", JSON.stringify(pet));
+      localStorage.setItem("pixelPet", JSON.stringify(pet));
       break;
     }
   }

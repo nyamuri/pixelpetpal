@@ -1,4 +1,4 @@
-let pet = JSON.parse(localStorage.getItem('pixelPal')) || {
+let pet = JSON.parse(localStorage.getItem('pixelPet')) || {
   name: "Buddy",
   type: "dog",
   hunger: 50,
@@ -103,7 +103,7 @@ function decayStats() {
 }
 
 function savePet() {
-  localStorage.setItem("pixelPal", JSON.stringify(pet));
+  localStorage.setItem("pixelPet", JSON.stringify(pet));
 }
 
 updateUI();
