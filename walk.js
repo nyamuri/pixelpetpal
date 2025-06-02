@@ -15,12 +15,13 @@ function preload() {
 }
 
 function setup() {
-  const containerWidth = document.querySelector('.container').clientWidth;
+  const container = document.getElementById('container');
+  const containerWidth = container.clientWidth;
   cellSize = Math.floor(containerWidth / cols);
 
   let canvas = createCanvas(cellSize * cols, cellSize * rows);
 
-  canvas.parent(document.querySelector('.container'));
+  canvas.parent(container);
   canvas.style('display', 'block');
   canvas.style('margin', '0 auto');
 
@@ -34,6 +35,7 @@ function setup() {
   coinCount = floor(random(1, 6)); // 1–5 coins
   spawnCoins(coinCount);
 }
+
 
 function draw() {
   background(102, 205, 170);
